@@ -1,0 +1,7 @@
+FROM flink:1.16-scala_2.12
+
+WORKDIR /app
+
+COPY target/elmis-pipeline-1.0-SNAPSHOT.jar /app/elmis-pipeline.jar
+
+CMD ["flink", "run", "-c", "BusinessLogic.DispensationNewProcess", "/app/elmis-pipeline.jar"]
